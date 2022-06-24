@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
 
 
@@ -12,7 +12,7 @@ class PostListView(ListView):
 class PostCreateView(CreateView):
     model = Post
     fields = "__all__"
-    success_url = reverse_lazy("blog: all")
+    success_url = reverse_lazy("blog:all")
 
 
 class PostDetailView(DetailView):
@@ -22,10 +22,11 @@ class PostDetailView(DetailView):
 class PostUpdateView(UpdateView):
     model = Post
     fields = "__all__"
-    success_url = reverse_lazy("blog: all")
+    success_url = reverse_lazy("blog:all")
 
 
-class PostDeleteView(UpdateView):
+class PostDeleteView(DeleteView):
     model = Post
     fields = "__all__"
-    success_url = reverse_lazy("blog: all")
+    success_url = reverse_lazy("blog:all")
+
